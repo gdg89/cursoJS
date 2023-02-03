@@ -1,0 +1,43 @@
+body{
+    background-color: blueviolet;
+}
+.container{
+    width: 50%;
+    background: white;
+    padding: 15px;
+    margin:20px auto;
+}
+
+form{
+    margin-top: 20px;
+}
+
+.form-item{
+    margin-bottom: 10px;
+   display:flex;
+   flex-direction: column;
+   width: 80%;
+   
+}
+
+form button{
+    padding:5px;
+    background-color: brown;
+    color: white;
+    font-weight: 500;
+    border: none;
+    width: 60px;
+    margin-top: 10px;
+    border-radius:5px;
+    cursor: pointer;
+}
+
+form button:hover{
+    transform:scale(1.5);
+    transition: all 1.2s;   
+}
+
+.error-text{
+    font-size: 0.8rem;
+    color:red;
+}

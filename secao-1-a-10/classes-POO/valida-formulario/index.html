@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulario de Cadastro</h1>
+        <ul>
+            <li>Nenhum campo pode estar vazio</li>
+            <li>Usuário só poderá conter letras e/ou números</li>
+            <li>Usuário deverá ter entre 3 e 12 caracteres</li>
+            <li>Senha precisa ter entre 6 e 12 caracteres</li>
+        </ul>
+        <form action="" class="formulario">
+            <div class="form-item">
+                <label for="name">Nome: </label>
+                <input id="name" type="text" class="name validar">
+            </div>
+            <div class="form-item">
+                <label for="sobrenome">Sobrenome: </label>
+                <input id="sobrenome" type="text" class="sobrenome validar">
+            </div>
+            <div class="form-item">
+                <label for="cpf">CPF: </label>
+                <input id="cpf" type="text" class="cpf validar">
+            </div>
+            <div class="form-item">
+                <label for="usuario">Usuário: </label>
+                <input id="usuario" type="text" class="usuario validar">
+            </div>
+            <div class="form-item">
+                <label for="senha">Senha: </label>
+                <input id="senha" type="password" class="senha validar">
+            </div>
+            <div class="form-item">
+                <label for="repetir-senha">Repetir Senha: </label>
+                <input id="repetir-senha" type="password" class="repetir-senha validar">
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="valid-cpf.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

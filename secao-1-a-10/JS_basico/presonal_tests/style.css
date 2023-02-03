@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main{
+    background-color: antiquewhite;
+    margin-top: 2rem;
+    padding: 2rem;
+    color:rgb(93, 26, 26);
+    width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    
+}
+
+form{
+    width:50%;
+    background-color:rgb(255, 201, 131);
+    padding:3rem;
+    display: flex;
+    flex-direction: column;
+    
+    
+
+}
+form div{
+    margin:0.8rem;
+}
+
+form button{
+    align-self:center;
+    width:8rem;
+    border: 1.5px solid rgb(246, 144, 10);
+    border-radius: 10px;
+    font-weight: bold;
+    color:antiquewhite;
+    background-color: rgb(249, 144, 8);
+    
+}
+
+form button:hover{
+    background-color: rgb(250, 226, 194);
+    color: rgb(249, 144, 8);
+    
+}
+
+table{
+    margin-top: 5rem;
+    width:80%;
+    border:1px solid brown;
+    border-collapse: collapse;
+}
+
+table td, table th{
+    border:1px solid brown;
+    padding-left: 1rem;
+}
+
+.feminino{
+    background-color: pink;
+    color:rgb(252, 92, 119);
+    font-weight: bold;
+}
+.masculino{
+    background-color: rgb(46, 199, 46);
+    color:rgb(151, 235, 151);
+    font-weight: bold;
+}
+.message1{
+    background: rgb(243, 24, 24);
+    color: white;
+    width:80%;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.message2{
+    display: hidden;
+}

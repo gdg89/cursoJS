@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+main{
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+
+}
+
+section{
+    background-color: antiquewhite;
+    width: 650px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 7px rgba(255, 255, 255, 0.8);
+
+}

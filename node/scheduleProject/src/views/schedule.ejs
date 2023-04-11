@@ -1,0 +1,42 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-8 my-3">
+                <h1 class="text-center">Schedule</h1>
+                <p class="text-center lead">Your contacts are below</p>
+
+                <!-- error messages -->
+                <%- include('includes/messages');%>
+
+                <div class="responsive-table">
+                    <table class="table my-3">
+                        <thead class="bg-success">
+                            <th class="text-light">Name</th>
+                            <th class="text-light">Last Name</th>
+                            <th class="text-light">Phone</th>
+                            <th class="text-light">Email</th>
+                            <th class="text-light">Action</th>
+                        </thead>
+                        <tr>
+                            <td>Giuliano</td>
+                            <td>GArcia</td>
+                            <td>+5535154895111</td>
+                            <td>email@email.email</td>
+                            <td>
+                                <a href="" class="btn btn-primary" role="button">edit</a>
+                                <a href="" class="btn btn-danger" role="button">delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('includes/footer')  %>
+

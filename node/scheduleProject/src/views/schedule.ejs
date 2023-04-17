@@ -11,7 +11,13 @@
 
                 <!-- error messages -->
                 <%- include('includes/messages');%>
+                <!--/end error messages -->
 
+                <div class="add-btn_container">
+                    <a href="/contact" class="btn btn-warning" role="button">Add contact</a>
+                </div>
+
+                <% if(contacts.length > 0) { %>
                 <div class="responsive-table">
                     <table class="table my-3">
                         <thead class="bg-success">
@@ -21,18 +27,24 @@
                             <th class="text-light">Email</th>
                             <th class="text-light">Action</th>
                         </thead>
-                        <tr>
-                            <td>Giuliano</td>
-                            <td>GArcia</td>
-                            <td>+5535154895111</td>
-                            <td>email@email.email</td>
-                            <td>
-                                <a href="" class="btn btn-primary" role="button">edit</a>
-                                <a href="" class="btn btn-danger" role="button">delete</a>
-                            </td>
-                        </tr>
+                        <% contacts.forEach(contact =>{  %>
+                            <tr>
+                                <td><%= contact.name %></td>
+                                <td><%= contact.lastName %></td>
+                                <td><%= contact.phone %></td>
+                                <td><%= contact.email  %></td>
+                                <td>
+                                    <a href="/contact/edit/<%= contact._id %>" class="btn btn-primary" role="button">edit</a>
+                                    <a href="/contact/delete/<%= contact._id %>" class="btn btn-danger" role="button">delete</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                        
                     </table>
                 </div>
+                <% } else { %>
+                    <p class="text-center lead">Nao existem contatos na sua agenda</p>
+                <% }  %>
             </div>
         </div>
     </div>

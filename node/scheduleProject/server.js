@@ -10,9 +10,9 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const helmet = require('helmet');
 const csrf = require('csurf');
-const {checkError, errorMessages} = require('./src/middlewares/errorMiddlewares');
-const {user} = require('./src/middlewares/globalsMiddlewares');
-const {mycsrfToken} = require('./src/middlewares/tokensMiddlewares');
+const { checkError, errorMessages } = require('./src/middlewares/errorMiddlewares');
+const { user } = require('./src/middlewares/globalsMiddlewares');
+const { mycsrfToken } = require('./src/middlewares/tokensMiddlewares');
 
 
 //DB connect
@@ -30,11 +30,11 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 const sessionOptions = session({
     secret: process.env.SESSIONSECRET,
     store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
-    resave:false,
-    saveUninitialized:false,
-    cookie:{
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 30,
-        httpOnly:true
+        httpOnly: true
     }
 });
 
@@ -43,7 +43,7 @@ const sessionOptions = session({
 app.use(sessionOptions);
 app.use(express.urlencoded({ extended: false }));//solicionó problema de invalid CSRF
 app.use(flash());
-app.use(helmet.referrerPolicy({policy: ["origin", "unsafe-url"]}));
+app.use(helmet.referrerPolicy({ policy: ["origin", "unsafe-url"] }));
 app.use(csrf());
 app.use(checkError);
 app.use(errorMessages);

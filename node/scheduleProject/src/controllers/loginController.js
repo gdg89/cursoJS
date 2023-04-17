@@ -28,10 +28,10 @@ exports.newUser = async (req, res) => {
         }
 
         //message de sucesso
-        req.flash('success', 'Ususario criado com sucesso');
+        req.flash('success', 'Ususario criado com sucesso, faça login!');
         //salvando session
         req.session.save(function () {
-            return res.redirect('/register');
+            return res.redirect('/login');
         });
 
     }catch(e){

@@ -1,15 +1,18 @@
-const { async } = require('regenerator-runtime');
 const Contact = require('../models/ContactModel');
 
 exports.index = (req, res) => {
     res.render('newContact');
 }
 
-exports.schedule = (req, res) => {
-    res.render('schedule');
+exports.schedule = async (req, res) => {
+    const contact = new Contact(req.body);
+    const contacts = await contact.searchContacts();
+    //pasa contacts para pegar os valores no view.
+    res.render('schedule', { contacts});
 }
 
 
+//Add new contact
 exports.newContact = async (req, res) => {
     try {
         const contact = new Contact(req.body);
@@ -25,7 +28,7 @@ exports.newContact = async (req, res) => {
 
         req.flash('success', 'Contato cadastrado com sucesso');
         req.session.save(function () {
-            return res.redirect(`/contact/edit/${contact.contact._id}`);
+            return res.redirect('/schedule');
         });
     } catch (e) {
         console.log(e);
@@ -33,6 +36,7 @@ exports.newContact = async (req, res) => {
     }
 }
 
+//Render form to edit contact
 exports.editIndex = async (req, res) => {
     if (!req.params.id) return res.render('404');
     const contact = new Contact(req.params.id);
@@ -43,6 +47,7 @@ exports.editIndex = async (req, res) => {
     res.render('contactEdit', { contactSelected });
 }
 
+//Edit Contact
 exports.editContact = async (req, res) => {
     try {
         if (!req.params.id) return res.render('404');
@@ -59,12 +64,26 @@ exports.editContact = async (req, res) => {
         }
         req.flash('success', 'Contato editado com sucesso');
         req.session.save(function() {
-            return res.redirect(`/contact/edit/${contact.contact._id}`);
+            return res.redirect('/schedule');
         });
-        return;
     }catch (e) {
         console.log(e);
         return res.render('404');
     }
-    
+}
+
+//Delete Contact
+exports.contactDelete = async(req, res) => {
+    try{
+        if(!req.params.id) return res.render('404');
+        const contact = new Contact(req.params.id);
+        if(!contact) return res.render('404');
+        await contact.delete(req.params.id);
+
+        req.flash('success', 'Contato deletado com sucesso');
+        req.session.save(() => res.redirect('/schedule'));
+    }catch(e){
+        console.log(e);
+        return res.render('404');
+    }
 }

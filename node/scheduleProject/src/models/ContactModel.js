@@ -20,31 +20,49 @@ class Contact {
     }
 
 
-    //pega contacto do banco pelo id
+    //Search contact by id
     async searchContactId(id){
         if(typeof id !== 'string') return;
         const contact = await ContactModel.findById(id);
         return contact;
     }
-
-    async contactEdit(id){
-        if(typeof id !== 'string') return;
-        this.valida();
-        if(this.errors.length > 0) return;
-        //procura contato pelo id e modifica os dados
-        this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {new: true});
-    }
-
+    
+    
+    //Create new contact in the DB
     async addContact(){
         this.valida();
         if (this.errors.length > 0 ) return;
         await this.contactExist();
         if (this.errors.length > 0) return;
-        //cria contato na DB
+        //create new contact and attribute it to this.contact
         this.contact = await ContactModel.create(this.body);
 
     }
 
+    //Edit contact selected by id
+    async contactEdit(id){
+        if(typeof id !== 'string') return;
+        this.valida();
+        if(this.errors.length > 0) return;
+        //Search contact by id and modify the data passed in the form
+        this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {new: true});
+    }
+
+    //Contact Delete
+    async delete(id){
+        if(typeof id !== 'string') return;
+        const contact = await ContactModel.findByIdAndDelete(id);
+        return contact;
+    }
+
+    //Takes all the contacts from the DB and orders them by creation date (-1 decreasing - 1  increasing).
+    async searchContacts(){
+        const contacts = await ContactModel.find().sort({ create: -1 });
+        return contacts;
+    }
+    
+
+    //check if the sent contact already exists
     async contactExist(){
         //procura contato na DB pelo email
         this.contact = await ContactModel.findOne({ email:this.body.email });
@@ -52,6 +70,7 @@ class Contact {
         if(this.contact) this.errors.push('Esse contato já existe');
     }
 
+    //Validate data sent
     valida(){
         this.cleanUp();
         
@@ -63,6 +82,7 @@ class Contact {
 
     }
 
+    //Verify that data sent is strings
     cleanUp(){
         for (const key in this.body){
             if(typeof this.body[key] !== 'string'){

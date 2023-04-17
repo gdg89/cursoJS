@@ -3249,6 +3249,57 @@ function withinMaxClamp(min, value, max) {
 
 /***/ }),
 
+/***/ "./frontend/modules/formsValidation.js":
+/*!*********************************************!*\
+  !*** ./frontend/modules/formsValidation.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Login": () => (/* binding */ Login)
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var Login = /*#__PURE__*/function () {
+  function Login(form) {
+    _classCallCheck(this, Login);
+    this.form = document.querySelector(form);
+  }
+  _createClass(Login, [{
+    key: "init",
+    value: function init() {
+      this.events();
+    }
+  }, {
+    key: "events",
+    value: function events() {
+      var _this = this;
+      if (!this.form) return;
+      this.form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        _this.validate(e);
+      });
+    }
+  }, {
+    key: "validate",
+    value: function validate(e) {
+      var el = e.target;
+      var emailInput = el.querySelector('input[name="email"]');
+      var passwordInput = el.querySelector('input[name="password"]');
+      console.log(emailInput.value, passwordInput.value);
+    }
+  }]);
+  return Login;
+}();
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.esm.js":
 /*!*********************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.esm.js ***!
@@ -29431,14 +29482,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/css/style.css */ "./frontend/assets/css/style.css");
+/* harmony import */ var _modules_formsValidation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/formsValidation */ "./frontend/modules/formsValidation.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/css/style.css */ "./frontend/assets/css/style.css");
 
 
 
 
 
+
+
+// remove flash message
+(function removeFlashMsg() {
+  var flashMessage = document.querySelector('.alert');
+  if (flashMessage) {
+    setTimeout(function () {
+      flashMessage.remove();
+    }, 2000);
+  }
+})();
+var login = new _modules_formsValidation__WEBPACK_IMPORTED_MODULE_2__.Login('.form-login');
+login.init();
 })();
 
 /******/ })()

@@ -1,5 +1,6 @@
 const Contact = require('../models/ContactModel');
 
+
 exports.index = (req, res) => {
     res.render('newContact');
 }
@@ -26,7 +27,7 @@ exports.newContact = async (req, res) => {
             return;
         }
 
-        req.flash('success', 'Contato cadastrado com sucesso');
+        req.flash('success', 'Registered contact with success');
         req.session.save(function () {
             return res.redirect('/schedule');
         });
@@ -62,7 +63,7 @@ exports.editContact = async (req, res) => {
             });
             return;
         }
-        req.flash('success', 'Contato editado com sucesso');
+        req.flash('success', 'Contact edited with success');
         req.session.save(function() {
             return res.redirect('/schedule');
         });
@@ -80,7 +81,7 @@ exports.contactDelete = async(req, res) => {
         if(!contact) return res.render('404');
         await contact.delete(req.params.id);
 
-        req.flash('success', 'Contato deletado com sucesso');
+        req.flash('success', 'Contact deleted with success');
         req.session.save(() => res.redirect('/schedule'));
     }catch(e){
         console.log(e);

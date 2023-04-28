@@ -11,7 +11,7 @@
                         <!-- error messages -->
                         <%- include('includes/messages');%>
                     
-                        <form action="/contact/editContact/<%= contactSelected._id  %>" method="POST">
+                        <form class="form-editContact" action="/contact/editContact/<%= contactSelected._id  %>" method="POST">
                         
                           <input type="hidden" id="token" name="_csrf" value="<%= csrfToken %>">
                             <div class="mb-3">

@@ -28,7 +28,7 @@ exports.newUser = async (req, res) => {
         }
 
         //message de sucesso
-        req.flash('success', 'Ususario criado com sucesso, faça login!');
+        req.flash('success', 'Successfully created user, please login!');
         //salvando session
         req.session.save(function () {
             return res.redirect('/login');

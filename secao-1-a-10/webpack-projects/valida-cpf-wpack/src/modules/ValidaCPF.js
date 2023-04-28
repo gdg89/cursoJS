@@ -34,6 +34,7 @@ export default class ValidaCPF{
         return digito <= 9 ? String(digito) : '0';
         console.log(total);
     }
+    
     valida(){
         if(!this.clearCpf) return false;
         if(typeof this.clearCpf != 'string') return false;

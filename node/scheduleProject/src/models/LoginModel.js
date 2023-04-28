@@ -8,7 +8,7 @@ const LoginSchema = new mongoose.Schema({
     password: { type: String, required: true }
 });
 
-const LoginModel = mongoose.model('Login', LoginSchema);
+const LoginModel = mongoose.model('login', LoginSchema);
 
 class Login {
     constructor(body) {
@@ -28,13 +28,13 @@ class Login {
         this.user = await LoginModel.findOne({ email: this.body.email });
 
         if(!this.user) {
-            this.errors.push('Usuario ou senha invalidos.');
+            this.errors.push('Invalid username or password.');
             return;
         }
 
         //cheka senha, pasando senha inserida no body, e pasando senha do banco de dados(user)
         if(!bcryptjs.compareSync(this.body.password, this.user.password)){
-            this.errors.push('Usuario ou senha invalidos.');
+            this.errors.push('Invalid username or password.');
             this.user = null;//resetando usuario por segurança
             return;
         }
@@ -64,7 +64,7 @@ class Login {
     async userExist() {
          this.user = await LoginModel.findOne({ email: this.body.email });
 
-        if (this.user) this.errors.push('Usuario já existe');
+        if (this.user) this.errors.push('User already exists');
     }
     //valida se dados são corretos para cadastrar usuario.
     valida() {
@@ -72,15 +72,15 @@ class Login {
         //validações com validator
 
         //email
-        if (!validator.isEmail(this.body.email)) this.errors.push('E-mail invalido');
+        if (!validator.isEmail(this.body.email)) this.errors.push('Invalid email');
 
         //password (3 to 50 chracters)
         if (this.body.password.length < 3 || this.body.password.length > 50) {
-            this.errors.push('A senha precisa ter entre 3 e 50 caracteres');
+            this.errors.push('The password needs to be between 3 and 50 characters.');
         }
 
         // if (this.body.passwordConfirm !== this.body.password) {
-        //     this.errors.push('As senhas devem ser iguais');
+        //     this.errors.push('Passwords do not match.');
         // }
 
     }

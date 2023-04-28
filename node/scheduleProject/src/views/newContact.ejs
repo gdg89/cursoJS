@@ -12,23 +12,23 @@
                         <%- include('includes/messages');%>
                        
 
-                        <form action="/contact/newContact" method="POST">
+                        <form class="form-newContact" action="/contact/newContact" method="POST">
                           <input type="hidden" id="token" name="_csrf" value="<%= csrfToken %>">
                             <div class="mb-3">
                               <label class="form-label">Name</label>
-                              <input type="text"  class="form-control" aria-describedby="name" name="name" autocomplete="name">
+                              <input type="text"  class="form-control" aria-describedby="name" name="name" autocomplete="name" required>
                             </div>
                             <div class="mb-3">
                               <label class="form-label">Last Name</label>
-                              <input type="text" class="form-control"  name="lastName" autocomplete="lastName">
+                              <input type="text" class="form-control"  name="lastName" autocomplete="name" required>
                             </div>
                             <div class="mb-3">
                               <label class="form-label">Phone</label>
-                              <input type="text" class="form-control"  name="phone" autocomplete="phone">
+                              <input type="text" class="form-control"  name="phone" autocomplete="phone" required>
                             </div>
                             <div class="mb-3">
                               <label class="form-label">Email</label>
-                              <input type="email" class="form-control"  name="email" autocomplete="email">
+                              <input type="email" class="form-control"  name="email" autocomplete="email" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Contact</button>
                           </form>

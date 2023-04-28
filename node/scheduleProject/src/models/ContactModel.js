@@ -30,7 +30,7 @@ class Contact {
     
     //Create new contact in the DB
     async addContact(){
-        this.valida();
+        this.validate();
         if (this.errors.length > 0 ) return;
         await this.contactExist();
         if (this.errors.length > 0) return;
@@ -42,7 +42,7 @@ class Contact {
     //Edit contact selected by id
     async contactEdit(id){
         if(typeof id !== 'string') return;
-        this.valida();
+        this.validate();
         if(this.errors.length > 0) return;
         //Search contact by id and modify the data passed in the form
         this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {new: true});
@@ -55,7 +55,7 @@ class Contact {
         return contact;
     }
 
-    //Takes all the contacts from the DB and orders them by creation date (-1 decreasing - 1  increasing).
+    //Takes all the contacts from the DB and orders them by creation date (-1 decreasing / 1  increasing).
     async searchContacts(){
         const contacts = await ContactModel.find().sort({ create: -1 });
         return contacts;
@@ -67,17 +67,17 @@ class Contact {
         //procura contato na DB pelo email
         this.contact = await ContactModel.findOne({ email:this.body.email });
         //Se o contato que tenta cadastrar ja existe retorna error
-        if(this.contact) this.errors.push('Esse contato já existe');
+        if(this.contact) this.errors.push('This contact already exists');
     }
 
     //Validate data sent
-    valida(){
+    validate(){
         this.cleanUp();
         
-        if(!this.body.name) this.errors.push('Nome é um campo obligatorio');
-        if(!this.body.phone) this.errors.push('Phone é um campo obligatorio');
-        if(!this.body.email) this.errors.push('Email é um campo obligatorio');
-        if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail invalido');
+        if(!this.body.name) this.errors.push('Name is a required field');
+        if(!this.body.phone) this.errors.push('Phone is a required field');
+        if(!this.body.email) this.errors.push('Email is a required field');
+        if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('Invalid email');
         
 
     }

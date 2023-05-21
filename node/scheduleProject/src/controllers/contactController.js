@@ -9,7 +9,7 @@ exports.schedule = async (req, res) => {
     const contact = new Contact(req.body);
     const contacts = await contact.searchContacts();
     //pasa contacts para pegar os valores no view.
-    res.render('schedule', { contacts});
+    res.render('schedule', { contacts });
 }
 
 

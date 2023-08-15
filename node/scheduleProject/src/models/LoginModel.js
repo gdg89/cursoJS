@@ -66,6 +66,8 @@ class Login {
 
         if (this.user) this.errors.push('User already exists');
     }
+
+    
     //valida se dados são corretos para cadastrar usuario.
     valida() {
         this.cleanUp();
@@ -94,6 +96,7 @@ class Login {
             }
         }
 
+        //reatrbuindo os valores do body apos  verfificar no for.
         this.body = {
             email: this.body.email,
             password: this.body.password,

@@ -30,7 +30,6 @@ function validateFields(formSelector, input, fieldValidators, password) {
         return validationMessage = fieldValidator(value);
     }
     
-    return validationMessage;
     
 }
 
@@ -51,6 +50,7 @@ export function formValidation(formSelector, fieldValidators) {
             if(formSelector === '.form-register' && input.name === 'password') password = input.value;
 
             const validationMessage = validateFields(formSelector, input, fieldValidators, password);
+            
             if (errorMessage(input, validationMessage)) {
                 error.push(`${input.name} error`);
             }

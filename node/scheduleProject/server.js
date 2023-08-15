@@ -41,7 +41,7 @@ const sessionOptions = session({
 
 
 app.use(sessionOptions);
-app.use(express.urlencoded({ extended: false }));//solicionó problema de invalid CSRF
+app.use(express.urlencoded({ extended: false }));//solicionó problema de invalid CSRF- é de uso obligatoro para leer os dados recebidos do form e disponibilizarlos no req.body.
 app.use(flash());
 app.use(helmet.referrerPolicy({ policy: ["origin", "unsafe-url"] }));
 app.use(csrf());

@@ -20,7 +20,6 @@ import "./assets/css/style.css";
 
 
 //forms validation
-
 const loginForm = formValidation('.form-login', loginValidator);
 loginForm.init();
 

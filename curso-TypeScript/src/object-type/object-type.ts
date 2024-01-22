@@ -11,7 +11,7 @@ const objectA: {
 };
 
 objectA.keyA = 'Troço';
-objectA.keyB = 'New Value';
+//objectA.keyB = 'New Value';
 objectA.keyC = 'Meio';
 objectA.keyR = 'New Key';
 

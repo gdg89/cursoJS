@@ -1,8 +1,8 @@
+import Student from '../models/student';
+
 class HomeController {
-  index(req, res) {
-    res.json({
-      tudoCerto: true,
-    });
+  async index(req, res) {
+    res.json('Home');
   }
 }
 

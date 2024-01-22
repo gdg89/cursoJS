@@ -21,17 +21,17 @@ específicos de valores que uma variável pode assumir.
 // no caso de const tem o tipo literal assignado, o seja
 // z é type 100, 100 seria um subtipo de number, e z não pode receber nenhum outro valor que não seja 100.
 
-const z = 100;//eslint-disable-line
+const m = 100;//eslint-disable-line
 
 
 //no caso de let o  typo seria number,  pudendo mudar para
 //qualquer valor do typo number.
-let x = 10;//eslint-disable-line
+let l = 10;//eslint-disable-line
 
 //usando literal-type
 let a: 120 = 120; //eslint-disable-line
-a = 100; // a é type 120, então não pode ser 100.
-
+//a = 100; // a é type 120, então não pode ser 100.
+console.log(a);
 //a maneira certa de se fazer(ver exemplo com chaves de objeto mas em baixo):
 let b = 100 as const;// eslint-disable-line
 
@@ -41,8 +41,8 @@ const person = {
   nome: 'Giuliano' as const, //o type de nome sera unicamene Giu.. não pode receber nenhum outro valor.
   sobrenome: 'García',
 };
-person.nome = 'ana'; // isso não é possivel
-
+//person.nome = 'ana'; // isso não é possivel
+console.log(person);
 //Combinando literal com union-type, obtemos baicamente o enum,
 // mas com a tipagem segura.
 

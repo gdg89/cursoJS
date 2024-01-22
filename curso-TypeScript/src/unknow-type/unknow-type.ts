@@ -13,6 +13,7 @@ o tipo unknown é utilizado para representar um valor cujo tipo
  */
 
 //exemplo com any:
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let x: any;
 
 x = 100;

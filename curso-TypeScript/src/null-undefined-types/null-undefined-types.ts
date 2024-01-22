@@ -6,8 +6,8 @@ let x;
 if (typeof x === 'undefined') x = 20; // fica atribuido o tipo number no lugar de undefined.
 console.log(x * 2);
 
-let z;
-console.log(z * 2); // da erro pos z é undefined.
+//let z;
+//console.log(z * 2); // da erro pos z é undefined.
 
 export function createPerson(
   firstName: string,
@@ -24,7 +24,7 @@ export function createPerson(
 
 //Null
 
-export function squareOf(x: any) {
+export function squareOf(x: unknown) {
   if (typeof x === 'number') return x * x;
   return null;
 }

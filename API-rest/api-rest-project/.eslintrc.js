@@ -24,5 +24,10 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'class-methods-use-this': 'off',
+    'import/first': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-unused-vars': 'off',
+    'no-param-reassign': 'off',
+    camelcase: 'off',
   },
 };

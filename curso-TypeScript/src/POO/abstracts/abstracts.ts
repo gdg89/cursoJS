@@ -13,7 +13,10 @@
  *
  */
 
-export class Perssonagem {
+//A class abstract Perssonagem so pode ser extendida e não instanciada diretamente!
+export abstract class Perssonagem {
+  protected abstract emoji: string;
+
   constructor(
     protected nome: string,
     protected ataque: number,
@@ -27,16 +30,30 @@ export class Perssonagem {
 
   perderVida(forcaAtaque: number): void {
     this.vida -= forcaAtaque;
-    console.log(`${this.nome} agora tem ${this.vida} de vida ...`);
+    console.log(
+      `${this.emoji} - ${this.nome} agora tem ${this.vida} de vida ...`,
+    );
   }
 
+  //toda classe extendida de Personagem precisa ter um  metodo bordão.
+  abstract bordao(): void;
+}
+
+export class Guerreira extends Perssonagem {
+  protected emoji = '\u{1F9DD}';
+
   bordao(): void {
-    console.log('BORDAO');
+    console.log(this.emoji + 'Alalaaaaaaaa!!!');
   }
 }
 
-export class Guerreira extends Perssonagem {}
-export class Mostro extends Perssonagem {}
+export class Mostro extends Perssonagem {
+  protected emoji = '\u{1F9DF}';
+
+  bordao(): void {
+    console.log(this.emoji + 'Grrrrrrrrr!!!');
+  }
+}
 
 const guerreira = new Guerreira('Shina', 100, 1000);
 const mostro = new Mostro('Kita', 87, 1000);

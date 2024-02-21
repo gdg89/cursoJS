@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-frontend": "webpack -w",
-    "build-backend": "tsc"
+    "build-frontend1": "webpack -w",
+    "build-backend1": "tsc"
   },
   "keywords": [],
   "author": "",

@@ -26,7 +26,7 @@
  *
  */
 
-//Singleton - GoF | Factory Method Gof
+//Singleton - GoF
 export class Database {
   private static database: Database;
 

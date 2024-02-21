@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viedo PLayer</title>
+  <link rel="stylesheet" href="./assets/css/video.css">
+</head>
+<body>
+  <div class="container">
+    <div class="video-container player">
+      <video class="video" controls>
+        <source src="assets/videos/surf.mp4" tpye="video/mp4"/>
+      </video>
+      <div class="controls">
+        <button class="play"data-icon="P" aria-label="play pause toggle"></button>
+        <button class="stop" data-icon="S" aria-label="stop"></button>
+        <div class="timer">
+          <div></div>
+          <span aria-label="timer">00:00</span>
+        </div>
+        <button class="rwd" data-icon="B" aria-label="rewind"></button>
+        <button class="fwd" data-icon="F" aria-label="fast forward"></button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./assets/js/bundle.js"></script>
+</body>
+</html>

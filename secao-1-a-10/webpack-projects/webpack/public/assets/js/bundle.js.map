@@ -1,1 +1,0 @@
-{"version":3,"file":"bundle.js","mappings":";;;;;AAAA;AACA,4B","sources":["webpack://webpack/./src/index.js"],"sourcesContent":["//const recibePrompt = prompt('No me acuerdo que hace el prompt, sera que precisa digitar alguna cosa?:');\r\n//console.log(recibePrompt);\r\n "],"names":[],"sourceRoot":""}

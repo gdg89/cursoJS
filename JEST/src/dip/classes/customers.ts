@@ -24,7 +24,7 @@ export class IndividualCustomers
   }
 }
 
-export class EntrepriseCustomer
+export class EnterpriseCustomers
   implements EnterpriseCustomerProtocol, CustomerOrderProtocol
 {
   name: string;

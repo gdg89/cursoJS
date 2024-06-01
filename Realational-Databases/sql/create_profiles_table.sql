@@ -1,0 +1,10 @@
+CREATE TABLE profiles(
+    id INT NOT NULL AUTO_INCREMENT,
+    bio TEXT,
+    description TEXT,
+    user_id INT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    CONSTRAINT `profiles_fk` FOREIGN KEY (user_id) REFERENCES users(id)
+);

@@ -1,5 +1,21 @@
-version: "3.1"
+
 services: 
+  node:
+    image: "node:19-bullseye"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    depends_on:
+      - mysql_cursos
+    expose:
+      - "8081"
+    ports:
+      - "3001:3001"
+    command: "npm start"
+    
   mysql_cursos:
     container_name: mysql_cursos
     hostname: mysql_cursos
@@ -9,13 +25,15 @@ services:
       - --mysql-native-password=ON
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
+      - --innodb_force_recovery=0
+      - --default_time_zone=America/Sao_Paulo
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     ports:
       - 3354:3306
     environment:
       MYSQL_ROOT_PASSWORD: senha
-      MYSQL_DATABASE: base_de_dados
+      MYSQL_DATABASE: db
       MYSQL_USER: usuario
       MYSQL_PASSWORD: senha
 

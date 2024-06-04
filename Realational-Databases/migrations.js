@@ -11,7 +11,7 @@ async function executeSQLfiles() {
     });
 
     try{
-        const sqlFiles = ['./sql/create_users_table.sql', './sql/create_roles_table.sql', './sql/create_users_roles_table.sql', './sql/create_profiles_table.sql']
+        const sqlFiles = ['./sql/DDL/create_users_table.sql', './sql/DDL/create_roles_table.sql', './sql/DDL/create_users_roles_table.sql', './sql/DDL/create_profiles_table.sql']
 
         for(const file of sqlFiles) {
             const sql = fs.readFileSync(file, 'utf-8')

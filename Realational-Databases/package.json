@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrations": "node migrations.js",
+    "migrations": "node ./src/db/migrations/migrations.js",
+    "seeds": "node ./src/db/seeders/usersSeeder.js",
+    "drop-tables": "node ./src/db/migrations/droptables.js",
     "start": "node server.js"
   },
   "author": "",
